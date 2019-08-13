@@ -27,7 +27,7 @@ SECRET_KEY = '0s)(5ktj+zi87(zkp--f46f543&l2&*nk$2)0=5of^ui2_+^w+'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['miniblog-react-django-app.herokuapp.com', '127.0.0.1']
 
 
 # Application definition
