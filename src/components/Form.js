@@ -8,16 +8,40 @@ class CustomForm extends React.Component {
         const { title, content } = event.target
         const time = new Date()
 
-        axios.post("http://127.0.0.1:8000/api/blog/", {
-            title: title.value,
-            content: content.value,
-            time: time.toISOString().slice(0, 10)
-        })
-            .then(res => console.log(res))
-            .catch(error => console.error(error))
+        switch (requestMethod) {
+            case "post":
+                axios.post("http://miniblog-react-django-app.herokuapp.com/api/blog/", {
+                    title: title.value,
+                    content: content.value,
+                    time: time.toISOString().slice(0, 10)
+                })
+                    .then(res => console.log(res))
+                    .catch(error => console.error(error))
+                break
+            case "put":
+                axios.put(`http://miniblog-react-django-app.herokuapp.com/api/blog/${blogID}`, {
+                    title: title.value,
+                    content: content.value,
+                    time: time.toISOString().slice(0, 10)
+                })
+                    .then(res => console.log(res))
+                    .catch(error => console.error(error))
+                break
+            default:
+                break
+        }
+
+
     }
 
     render() {
+        var FormButton;
+        if (this.props.requestMethod === "post") {
+            FormButton = <Button type="primary" htmlType="submit" >Post</Button>
+        }
+        else if (this.props.requestMethod === "put") {
+            FormButton = <Button type="primary" htmlType="submit" >Put</Button>
+        }
 
         return (
             <div>
@@ -36,7 +60,7 @@ class CustomForm extends React.Component {
                         <Input name="name" placeholder="Your name" />
                     </Form.Item>
                     <Form.Item>
-                        <Button type="primary" htmlType="submit" >Post</Button>
+                        {FormButton}
                     </Form.Item>
                 </Form>
             </div>
