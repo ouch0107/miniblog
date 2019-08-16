@@ -12,7 +12,7 @@ class BlogList extends React.Component {
     // Local machine url
     // http://127.0.0.1:8000/api/blog/
     componentDidMount() {
-        axios.get('http://miniblog-react-django-app.herokuapp.com/api/blog/')
+        axios.get('https://miniblog-react-django-app.herokuapp.com/api/blog/')
             .then(res => {
                 this.setState({
                     blogs: res.data

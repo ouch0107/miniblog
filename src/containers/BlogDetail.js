@@ -15,14 +15,14 @@ class BlogDetail extends React.Component {
     componentDidMount() {
         const blogID = this.props.match.params.blogID
 
-        axios.get(`http://miniblog-react-django-app.herokuapp.com/api/blog/${blogID}/`)
+        axios.get(`https://miniblog-react-django-app.herokuapp.com/api/blog/${blogID}/`)
             .then(res => {
                 this.setState({
                     blog: res.data
                 })
             })
 
-        axios.get("http://miniblog-react-django-app.herokuapp.com/api/comment/")
+        axios.get("https://miniblog-react-django-app.herokuapp.com/api/comment/")
             .then(res => {
                 this.setState({
                     comments: res.data

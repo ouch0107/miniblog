@@ -63,7 +63,7 @@ class Comments extends React.Component {
         const { comment, name } = event.target
         const time = new Date()
 
-        axios.post("http://miniblog-react-django-app.herokuapp.com/api/comment/", {
+        axios.post("https://miniblog-react-django-app.herokuapp.com/api/comment/", {
             comment: comment.value,
             name: name.value,
             time: time.toISOString(),

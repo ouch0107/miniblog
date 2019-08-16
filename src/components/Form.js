@@ -10,7 +10,7 @@ class CustomForm extends React.Component {
 
         switch (requestMethod) {
             case "post":
-                axios.post("http://miniblog-react-django-app.herokuapp.com/api/blog/", {
+                axios.post("https://miniblog-react-django-app.herokuapp.com/api/blog/", {
                     title: title.value,
                     content: content.value,
                     time: time.toISOString().slice(0, 10)
@@ -19,7 +19,7 @@ class CustomForm extends React.Component {
                     .catch(error => console.error(error))
                 break
             case "put":
-                axios.put(`http://miniblog-react-django-app.herokuapp.com/api/blog/${blogID}`, {
+                axios.put(`https://miniblog-react-django-app.herokuapp.com/api/blog/${blogID}`, {
                     title: title.value,
                     content: content.value,
                     time: time.toISOString().slice(0, 10)
